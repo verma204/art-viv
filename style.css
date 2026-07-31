@@ -23,6 +23,8 @@ body {
     background-color: #fff;
 }
 
+
+
 header, main {
     position: relative;
     z-index: 1;
@@ -60,4 +62,9 @@ header, main {
 .navlinks a:hover {
   color: #2c3e50;
   text-decoration: none;
+}
+
+.no-touch-scroll {
+  /* Disables all touch-based scrolling and zooming on this element */
+  touch-action: none; 
 }

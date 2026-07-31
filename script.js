@@ -40,6 +40,7 @@ window.addEventListener('touchstart', (e) => {
     mouse.y = e.touches[0].clientY;
 });//, {passive: true});
 
+/*
 window.addEventListener('touchend', (e) => {
     mouse.x = -1000;
     mouse.y = -1000;
@@ -49,7 +50,7 @@ window.addEventListener('touchend', (e) => {
     mouse.x = -1000;
     mouse.y = -1000;
 });
-
+*/
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
