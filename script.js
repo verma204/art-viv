@@ -17,7 +17,31 @@ window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 });
+/*
+window.addEventListener('mouseout', (e) => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+});
+*/
+window.addEventListener('touchmove', (e) => {
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+}, {passive: true});
 
+window.addEventListener('touchstart', (e) => {
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+}, {passive: true});
+
+window.addEventListener('touchend', (e) => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+});
+
+window.addEventListener('touchend', (e) => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+});
 /*
 function animate() {
     //Clear screen
@@ -111,7 +135,7 @@ function drawArrow(x, y) {
 
     //Min Max detections
     
-    if (dist < 5) return;
+    if (dist < 7) return;
     if (dist > 100) return;
     
     
@@ -122,7 +146,7 @@ function drawArrow(x, y) {
     ctx.translate(x, y)
     ctx.rotate(angle);
     
-    let arrowLength = 20;
+    let arrowLength = 25;
     if (dist < 35) {
         arrowLength = 30 * dist/35;
     }
