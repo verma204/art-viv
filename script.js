@@ -29,7 +29,7 @@ window.addEventListener('touchmove', (e) => {
 
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
-});//, {passive: true});
+}, {passive: false});//, {passive: true});
 
 window.addEventListener('touchstart', (e) => {
 
@@ -38,7 +38,7 @@ window.addEventListener('touchstart', (e) => {
 
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
-});//, {passive: true});
+}, {passive: false});//, {passive: true});
 
 /*
 window.addEventListener('touchend', (e) => {
@@ -85,8 +85,8 @@ function animate() {
 }
 
 function populateArrows(){
-    for (let i = 0; i <= 35; i++) {
-        for (let j = 0; j <= 20; j++) {
+    for (let i = 0; i <= 40; i++) {
+        for (let j = 0; j <= 25; j++) {
             drawArrow(50 * i, 50 * j);
         }
     }
