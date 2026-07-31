@@ -35,7 +35,7 @@ window.addEventListener('touchstart', (e) => {
 
     e.preventDefault();
 
-    
+
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
 });//, {passive: true});
@@ -68,9 +68,9 @@ function animate() {
 
 
     ctx.beginPath();
-    ctx.arc(mouse.x, mouse.y, 110, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
-    ctx.lineWidth = 50;
+    ctx.arc(mouse.x, mouse.y, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(180, 50, 220, 0.05)';
+    ctx.lineWidth = 235;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round'
     ctx.stroke();
@@ -123,7 +123,7 @@ function drawArrow(x, y) {
     ctx.lineTo(arrowLength - 15, 8);
 
     //Fill in arrow
-    ctx.strokeStyle = 'rgba(0, 220, 255, 0.8)';
+    ctx.strokeStyle = 'rgba(180, 50, 220, 0.7)';
     ctx.lineWidth = 3;
     ctx.stroke();
 
