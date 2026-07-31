@@ -78,6 +78,16 @@ function animate() {
     const y2 = 600;
     drawArrow(x2, y2);
     */
+
+
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, 110, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255, 25, 4, 0.13)';
+    ctx.lineWidth = 20;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round'
+    ctx.stroke();
+
     populateArrows();
 
     
@@ -86,9 +96,9 @@ function animate() {
 }
 
 function populateArrows(){
-    for (let i = 0; i <= 20; i++) {
-        for (let j = 0; j <= 10; j++) {
-            drawArrow(100 * i, 100 * j);
+    for (let i = 0; i <= 35; i++) {
+        for (let j = 0; j <= 20; j++) {
+            drawArrow(50 * i, 50 * j);
         }
     }
 }
@@ -98,7 +108,12 @@ function drawArrow(x, y) {
     const dy = mouse.y - y;
 
     const dist = Math.sqrt(dx * dx + dy * dy)
-    if (dist < 10) return;
+
+    //Min Max detections
+    
+    if (dist < 5) return;
+    if (dist > 100) return;
+    
     
     const angle = Math.atan2(dy,dx) + Math.PI
     
@@ -107,7 +122,7 @@ function drawArrow(x, y) {
     ctx.translate(x, y)
     ctx.rotate(angle);
     
-    let arrowLength = 30;
+    let arrowLength = 20;
     if (dist < 35) {
         arrowLength = 30 * dist/35;
     }
@@ -124,6 +139,7 @@ function drawArrow(x, y) {
     ctx.strokeStyle = 'rgba(0, 220, 255, 0.8)';
     ctx.lineWidth = 3;
     ctx.stroke();
+
 
     ctx.restore();
 
