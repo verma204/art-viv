@@ -2,7 +2,6 @@ const canvas = document.getElementById('elec-pot-bg');
 const ctx = canvas.getContext('2d');
 let width, height;
 //let arrows[];
-let mouse = {x: -1000, y: -1000 };
 
 function resize() {
     width = canvas.width = window.innerWidth;
@@ -10,6 +9,9 @@ function resize() {
 }
 window.addEventListener('resize', resize);
 resize();
+
+let mouse = {x: canvas.width / 2, y: canvas.height / 2 };
+
 
 window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
@@ -77,6 +79,7 @@ function animate() {
     drawArrow(x2, y2);
     */
     populateArrows();
+
     
     requestAnimationFrame(animate);
      
@@ -93,15 +96,22 @@ function populateArrows(){
 function drawArrow(x, y) {
     const dx = mouse.x - x;
     const dy = mouse.y - y;
-    const angle = Math.atan2(dy,dx)
+
+    const dist = Math.sqrt(dx * dx + dy * dy)
+    if (dist < 10) return;
+    
+    const angle = Math.atan2(dy,dx) + Math.PI
     
     ctx.save();
 
     ctx.translate(x, y)
     ctx.rotate(angle);
     
-    const arrowLength = 50;
-
+    let arrowLength = 30;
+    if (dist < 35) {
+        arrowLength = 30 * dist/35;
+    }
+    
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(arrowLength, 0);
