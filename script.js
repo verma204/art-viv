@@ -10,7 +10,7 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-let mouse = {x: canvas.width / 2, y: canvas.height / 2 };
+let mouse = {x: -1000, y: -1000 };
 
 
 window.addEventListener('mousemove', (e) => {
