@@ -68,3 +68,6 @@ header, main {
   /* Disables all touch-based scrolling and zooming on this element */
   touch-action: none; 
 }
+button, .clickable {
+  touch-action: manipulation; /* Allows tapping/clicking */
+}
