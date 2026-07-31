@@ -66,7 +66,7 @@ function animate() {
     drawArrow(x2, y2);
     */
 
-
+    /*
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, 0, 0, Math.PI * 2);
     ctx.strokeStyle = 'rgba(180, 50, 220, 0.05)';
@@ -74,6 +74,7 @@ function animate() {
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round'
     ctx.stroke();
+    */
 
     populateArrows();
 
@@ -97,10 +98,10 @@ function drawArrow(x, y) {
     const dist = Math.sqrt(dx * dx + dy * dy)
 
     //Min Max detections
-    
     if (dist < 7) return;
+    /*
     if (dist > 100) return;
-    
+    */
     
     const angle = Math.atan2(dy,dx) + Math.PI
     
@@ -118,13 +119,21 @@ function drawArrow(x, y) {
     ctx.moveTo(0, 0);
     ctx.lineTo(arrowLength, 0);
 
-    ctx.lineTo(arrowLength - 15, -8);
-    ctx.moveTo(arrowLength, 0);
-    ctx.lineTo(arrowLength - 15, 8);
+    let color = 'rgba(180, 50, 220, 0.7)';
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.moveTo(arrowLength - 9, -4);
+    ctx.lineTo(arrowLength, 0);
+    ctx.lineTo(arrowLength - 9, 4);
 
     //Fill in arrow
-    ctx.strokeStyle = 'rgba(180, 50, 220, 0.7)';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
     ctx.stroke();
 
 
