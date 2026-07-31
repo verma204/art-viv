@@ -24,14 +24,21 @@ window.addEventListener('mouseout', (e) => {
 });
 */
 window.addEventListener('touchmove', (e) => {
+
+    e.preventDefault();
+
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
-}, {passive: true});
+});//, {passive: true});
 
 window.addEventListener('touchstart', (e) => {
+
+    e.preventDefault();
+
+    
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
-}, {passive: true});
+});//, {passive: true});
 
 window.addEventListener('touchend', (e) => {
     mouse.x = -1000;
@@ -42,51 +49,7 @@ window.addEventListener('touchend', (e) => {
     mouse.x = -1000;
     mouse.y = -1000;
 });
-/*
-function animate() {
-    //Clear screen
-    ctx.clearRect(0, 0, width, height);
 
-    //Calculate center point
-    const centerX = width / 2;
-    const centerY = height / 2;
-
-    //Calculate distance from center point and angle the arrow should be pointed
-    const dx = mouse.x - centerX;
-    const dy = mouse.y - centerY;
-    const angle = Math.atan2(dy, dx) + (Math.PI);
-
-
-
-    //save state before rotation
-    ctx.save();
-
-    //move arrow to center of screen and rotate
-    ctx.translate(centerX, centerY);
-    ctx.rotate(angle);
-
-    const arrowLength = 50;
-
-    //Draw tail of arrow
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(arrowLength, 0);
-
-    //draw arrowhead
-    ctx.lineTo(arrowLength - 15, -8);
-    ctx.moveTo(arrowLength, 0);
-    ctx.lineTo(arrowLength - 15, 8);
-
-    //Fill in arrow
-    ctx.strokeStyle = 'rgba(0, 220, 255, 0.8)';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    ctx.restore();
-
-    requestAnimationFrame(animate);
-}
-*/
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
@@ -106,8 +69,8 @@ function animate() {
 
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, 110, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(255, 25, 4, 0.13)';
-    ctx.lineWidth = 20;
+    ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
+    ctx.lineWidth = 50;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round'
     ctx.stroke();
