@@ -11,6 +11,7 @@
     width: 100%;
     height: 100%;
     z-index: -1;
+    pointer-events: none;
 }
 
 body {
@@ -64,10 +65,8 @@ header, main {
   text-decoration: none;
 }
 
-.no-touch-scroll {
-  /* Disables all touch-based scrolling and zooming on this element */
-  touch-action: none; 
-}
-button, .clickable {
-  touch-action: manipulation; /* Allows tapping/clicking */
+button, .clickable, a {
+    touch-action: manipulation; /* Allows tapping/clicking without delay */
+    -webkit-tap-highlight-color: transparent; /* Removes blue flash on iOS */
+    user-select: none; /* Prevents text selection on rapid taps */
 }

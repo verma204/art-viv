@@ -17,65 +17,26 @@ window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 });
-/*
-window.addEventListener('mouseout', (e) => {
-    mouse.x = -1000;
-    mouse.y = -1000;
-});
-*/
+
 window.addEventListener('touchmove', (e) => {
 
     e.preventDefault();
 
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
-}, {passive: false});//, {passive: true});
+}, {passive: false});
 
 window.addEventListener('touchstart', (e) => {
 
-    e.preventDefault();
-
-
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
-}, {passive: false});//, {passive: true});
+}, {passive: true});
 
-/*
-window.addEventListener('touchend', (e) => {
-    mouse.x = -1000;
-    mouse.y = -1000;
-});
-
-window.addEventListener('touchend', (e) => {
-    mouse.x = -1000;
-    mouse.y = -1000;
-});
-*/
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    //Calculate center point
-
-    /*
-    const centerX = width / 2;
-    const centerY = height / 2;
-    drawArrow(centerX, centerY);
-
-    const x2 = 600;
-    const y2 = 600;
-    drawArrow(x2, y2);
-    */
-
-    /*
-    ctx.beginPath();
-    ctx.arc(mouse.x, mouse.y, 0, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(180, 50, 220, 0.05)';
-    ctx.lineWidth = 235;
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round'
-    ctx.stroke();
-    */
+    
 
     populateArrows();
 
